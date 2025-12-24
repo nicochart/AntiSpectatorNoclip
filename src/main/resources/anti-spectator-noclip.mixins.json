@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"package": "fr.factionbedrock.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"PlayerTickMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}
