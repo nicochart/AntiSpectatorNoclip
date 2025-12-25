@@ -1,5 +1,6 @@
 package fr.factionbedrock.mixin;
 
+import fr.factionbedrock.registry.ASNStatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -14,9 +15,10 @@ public class PlayerTickMixin
 	{
 		PlayerEntity self = (PlayerEntity)(Object)this;
 
-		if (self.isSpectator() && self.noClip)
+		if (self.isSpectator())
 		{
-			self.noClip = false;
+			if (self.noClip && !self.hasStatusEffect(ASNStatusEffects.ALLOW_NOCLIP)) {self.noClip = false;}
+			else if (!self.noClip && self.hasStatusEffect(ASNStatusEffects.ALLOW_NOCLIP)) {self.noClip = true;}
 		}
 	}
 }
