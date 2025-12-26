@@ -17,8 +17,8 @@ public class PlayerTickMixin
 
 		if (self.isSpectator())
 		{
-			if (self.noClip && !self.hasStatusEffect(ASNStatusEffects.ALLOW_NOCLIP)) {self.noClip = false;}
-			else if (!self.noClip && self.hasStatusEffect(ASNStatusEffects.ALLOW_NOCLIP)) {self.noClip = true;}
+			if (self.noClip && !self.hasStatusEffect(ASNStatusEffects.ALLOW_NOCLIP.value())) {self.noClip = false;}
+			else if (!self.noClip && self.hasStatusEffect(ASNStatusEffects.ALLOW_NOCLIP.value())) {self.noClip = true;}
 		}
 	}
 }
